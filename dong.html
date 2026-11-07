@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>致0434：立冬快乐</title>
+<style>
+  body {
+    margin: 0;
+    background: radial-gradient(circle at 50% 30%, #1b1b3a, #0b0b1a);
+    overflow: hidden;
+    font-family: "Microsoft YaHei", sans-serif;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .card {
+    z-index: 10;
+    padding: 24px 28px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 18px;
+    box-shadow: 0 0 30px rgba(255,150,180,0.25);
+    backdrop-filter: blur(6px);
+  }
+  .title {
+    font-size: 32px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 12px rgba(255,150,180,0.8);
+  }
+  .desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #ffd6e0;
+  }
+  .heart {
+    position: absolute;
+    top: -10vh;
+    color: #ff6b8a;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    to {
+      transform: translateY(120vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="title">❄️ 致0434：立冬快乐 ❄️</div>
+  <div class="desc">
+    冬天从今天开始悄悄来了<br>
+    愿你有热茶、有暖衣、有好心情<br>
+    这个冬天，平安顺遂，温暖常伴
+  </div>
+</div>
+
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = Math.random() > 0.5 ? "❤" : "❄";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 18 + 14 + "px";
+  heart.style.opacity = Math.random() * 0.6 + 0.4;
+  const duration = Math.random() * 4 + 4;
+  heart.style.animationDuration = duration + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), duration * 1000);
+}
+setInterval(createHeart, 180);
+</script>
+
+</body>
+</html>
